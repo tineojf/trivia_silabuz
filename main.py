@@ -77,6 +77,7 @@ opcionCorrecta_p6 = "b"
 ##* Puntaje
 puntajeIntento = 0
 puntajeCorrecto = 10
+puntajeExtra = 0
 
 ##* Funcion para cada pregunta
 def preguntas(param_pregunta, param_alternativas, param_opcionCorrecta):
@@ -114,8 +115,8 @@ time.sleep(1)
 nombreParticipante = input(MAGENTA + "¿Cuál es tu nombre? " + NORMALIZE)
 if nombreParticipante == "Admin":
   print(MAGENTA + "Bienvenido usuario curioso, espero que éstas preguntas puedan ser de tu agrado" + NORMALIZE)
-  print("En agradecimiento, empiezas con un puntaje inicial de 100 puntos")
-  puntajeIntento = 100
+  print("En agradecimiento, te añadiremos 100 puntos extra en tu score")
+  puntajeExtra = 100
 else:
   print(YELLOW + f"Bienvenido {nombreParticipante}\nAplica tus conocimientos y obtén el máximo puntaje. ¡Vamos!")
 
@@ -205,7 +206,7 @@ while repetir == True:
 
 
   print(YELLOW + "\nFelicidades, terminaste la Trivia de Fórmula 1.")
-  print(MAGENTA + f"Tu puntaje Final es: {puntajeIntento}")
+  print(MAGENTA + f"Tu puntaje Final es: {puntajeIntento + puntajeExtra}")
 
   preguntaNuevoIntento = input(MAGENTA +"¿Quieres intentarlo de nuevo? (Si/No) ")
   suerte = suerte.lower()
