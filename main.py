@@ -46,7 +46,7 @@ alternativas_p2 = [
 alternativas_p3 = [
     "a) El auto que lleva al ganador al podio",
     "b) El coche que lidera al inicio de la carrera",
-    "c) El coche de seguirdad en la pista",
+    "c) El coche de seguridad en la pista",
     "d) El coche más rapido de la pista"
 ]
 alternativas_p4 = [
@@ -110,34 +110,5 @@ while True:
   else:
     print("Excelente, es la respuesta correcta")
     break
-
-
-###* Pregunta 2
-print(CYAN + pregunta_p2)
-for iteracion in alternativas_p2:
-    print(YELLOW + iteracion + NORMALIZE)
-
-##* Verificar letra dentro de alternativas
-while True:
-  variable = input("Introduca la opción correcta: ")
-  variable = variable.lower()
-
-
-  while variable not in listaOpciones:
-    variable = input("Introduzca una letra dentro de las opciones mostradas: ")
-    variable = variable.lower()
-
-  if variable != opcionCorrecta_p2:
-    print("No es la respuesta correcta, inténtalo otra vez")
-  else:
-    print("Excelente, es la respuesta correcta")
-    break
-
-
-
-
-
-
-
 
 
