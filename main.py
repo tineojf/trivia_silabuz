@@ -78,6 +78,35 @@ opcionCorrecta_p5 = "a"
 opcionCorrecta_p6 = "b"
 
 
+##* Puntaje
+puntajeIntento = 0
+puntajeCorrecto = 10
+
+
+##* Funcion para cada pregunta
+def preguntas(param_pregunta, param_alternativas, param_opcionCorrecta):
+
+  print(param_pregunta)
+  for iteracion in param_alternativas:
+      print(iteracion)
+
+  ##* Verificar letra dentro de alternativas
+  while True:
+    variable = input("Introduca la opción correcta: ")
+    variable = variable.strip()
+    variable = variable.lower()
+
+
+    while variable not in listaOpciones:
+      variable = input("Introduzca una letra dentro de las opciones mostradas: ")
+      variable = variable.strip()
+      variable = variable.lower()
+
+    if variable != param_opcionCorrecta:
+      print("No es la respuesta correcta, inténtalo otra vez")
+    else:
+      print("Excelente, es la respuesta correcta")
+      break
 
 
 ###todo Bienvenida de Trivia
