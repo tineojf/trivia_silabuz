@@ -84,7 +84,12 @@ opcionCorrecta_p6 = "b"
 print(YELLOW + "Trivia de Fórmula 1" + NORMALIZE)
 
 nombreParticipante = input(MAGENTA + "¿Cuál es tu nombre? " + NORMALIZE)
-print(YELLOW + f"Bienvenido {nombreParticipante}\nAplica tus conocimientos y obtén el máximo puntaje. ¡Suerte!")
+if nombreParticipante == "Admin":
+  print("Bienvenido usuario curioso, espero que éstas preguntas puedan ser de tu agrado")
+  # print("En agradecimiento, empiezas con un puntaje inicial de ### puntos")
+  #! añadir puntaje extra
+else:
+  print(YELLOW + f"Bienvenido {nombreParticipante}\nAplica tus conocimientos y obtén el máximo puntaje. ¡Suerte!")
 
 
 #! Añadir puntaje inicial 
