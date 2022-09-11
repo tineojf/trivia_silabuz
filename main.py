@@ -160,60 +160,73 @@ for numero in range(5, 0, -1):
 
 
 
-##* Puntaje inicial
-print(f"\nTu puntaje inicial es: {puntajeIntento}")
-time.sleep(2)
+##* Bucle intentos
+intento = 1
+repetir = True
+while repetir == True:
+  puntajeIntento = 0
+
+  ##* Puntaje inicial
+  print(f"\nTu puntaje inicial es: {puntajeIntento}")
+  time.sleep(2)
 
 
 
-##* Preguntas
-preguntas(pregunta_p1, alternativas_p1, opcionCorrecta_p1)
-puntajeIntento = puntajeIntento + puntajeCorrecto
-print(f"\nTu puntaje actual es: {puntajeIntento}")
+  ##* Preguntas
+  preguntas(pregunta_p1, alternativas_p1, opcionCorrecta_p1)
+  puntajeIntento = puntajeIntento + puntajeCorrecto
+  print(f"\nTu puntaje actual es: {puntajeIntento}")
 
 
-time.sleep(2)
-preguntas(pregunta_p2, alternativas_p2, opcionCorrecta_p2)
-puntajeIntento = puntajeIntento + puntajeCorrecto
-print(f"\nTu puntaje actual es: {puntajeIntento}")
-
-
-
-time.sleep(2)
-preguntas(pregunta_p3, alternativas_p3, opcionCorrecta_p3)
-puntajeIntento = puntajeIntento + puntajeCorrecto
-print(f"\nTu puntaje actual es: {puntajeIntento}")
+  time.sleep(2)
+  preguntas(pregunta_p2, alternativas_p2, opcionCorrecta_p2)
+  puntajeIntento = puntajeIntento + puntajeCorrecto
+  print(f"\nTu puntaje actual es: {puntajeIntento}")
 
 
 
-time.sleep(2)
-preguntas(pregunta_p4, alternativas_p4, opcionCorrecta_p4)
-puntajeIntento = puntajeIntento + puntajeCorrecto
-print(f"\nTu puntaje actual es: {puntajeIntento}")
+  time.sleep(2)
+  preguntas(pregunta_p3, alternativas_p3, opcionCorrecta_p3)
+  puntajeIntento = puntajeIntento + puntajeCorrecto
+  print(f"\nTu puntaje actual es: {puntajeIntento}")
 
 
 
-time.sleep(2)
-preguntas(pregunta_p5, alternativas_p5, opcionCorrecta_p5)
-puntajeIntento = puntajeIntento + puntajeCorrecto
-print(f"\nTu puntaje actual es: {puntajeIntento}")
+  time.sleep(2)
+  preguntas(pregunta_p4, alternativas_p4, opcionCorrecta_p4)
+  puntajeIntento = puntajeIntento + puntajeCorrecto
+  print(f"\nTu puntaje actual es: {puntajeIntento}")
 
 
 
-time.sleep(2)
-preguntas(pregunta_p6, alternativas_p6, opcionCorrecta_p6)
-puntajeIntento = puntajeIntento + puntajeCorrecto
+  time.sleep(2)
+  preguntas(pregunta_p5, alternativas_p5, opcionCorrecta_p5)
+  puntajeIntento = puntajeIntento + puntajeCorrecto
+  print(f"\nTu puntaje actual es: {puntajeIntento}")
 
 
 
-time.sleep(2)
-##* Carga aleatoria final
-numeroAleatorio = random.randint(1, 5)
-for carga in range(numeroAleatorio, 0, -1):
-  print(carga)
-  time.sleep(1)
+  time.sleep(2)
+  preguntas(pregunta_p6, alternativas_p6, opcionCorrecta_p6)
+  puntajeIntento = puntajeIntento + puntajeCorrecto
 
 
-print(f"\nFelicidades, terminaste la Trivia de Formula 1.\nTu puntaje Final es: {puntajeIntento}")
+
+  time.sleep(2)
+  ##* Carga aleatoria final
+  numeroAleatorio = random.randint(1, 5)
+  for carga in range(numeroAleatorio, 0, -1):
+    print(carga)
+    time.sleep(1)
 
 
+  print(f"\nFelicidades, terminaste la Trivia de Formula 1.\nTu puntaje Final es: {puntajeIntento}")
+
+  preguntaNuevoIntento = input("¿Quieres intentarlo de nuevo? (Si/No) ")
+  suerte = suerte.lower()
+  if preguntaNuevoIntento == "no":
+    break
+  else:
+    intento +=1
+
+print(f"\nTu número de intentos fue: {intento}")
