@@ -3,6 +3,7 @@
 
 
 #* Import
+import random
 #! Agregar
 
 ##* Colores
@@ -125,8 +126,21 @@ if nombreParticipante == "Admin":
   print("En agradecimiento, empiezas con un puntaje inicial de 50 puntos")
   puntajeIntento = 50
 else:
-  print(YELLOW + f"Bienvenido {nombreParticipante}\nAplica tus conocimientos y obtén el máximo puntaje. ¡Suerte!")
+  print(YELLOW + f"Bienvenido {nombreParticipante}\nAplica tus conocimientos y obtén el máximo puntaje. Vamos!")
 
+
+
+
+##* Suete aleatoria en puntajes
+suerte = input("¿Te gustaría que la Suerte ingrese en este juego? (Si/No) ")
+suerte = suerte.lower()
+
+if suerte == "si":
+  print("¡La Suerte está dentro!, esperemos que obtengas el mayor puntaje en este intento")
+  puntajeCorrecto = random.randint (11, 100)
+  print(f"La Suerte dictaminó que en este intento, por respuesta correcta tendás +{puntajeCorrecto} puntos")
+elif suerte =="no":
+  print(f"La Suerte no está invitada en este intento. Tu puntaje por respuesta correcta será +{puntajeCorrecto}. Empecemos a jugar...")
 
 
 
