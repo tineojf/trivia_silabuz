@@ -4,6 +4,7 @@
 
 #* Import
 import random
+import time
 #! Agregar
 
 ##* Colores
@@ -120,67 +121,99 @@ def preguntas(param_pregunta, param_alternativas, param_opcionCorrecta):
 ###todo Bienvenida de Trivia
 print(YELLOW + "Trivia de Fórmula 1" + NORMALIZE)
 
+time.sleep(1)
 nombreParticipante = input(MAGENTA + "¿Cuál es tu nombre? " + NORMALIZE)
 if nombreParticipante == "Admin":
   print(MAGENTA + "Bienvenido usuario curioso, espero que éstas preguntas puedan ser de tu agrado" + NORMALIZE)
   print("En agradecimiento, empiezas con un puntaje inicial de 50 puntos")
   puntajeIntento = 50
 else:
-  print(YELLOW + f"Bienvenido {nombreParticipante}\nAplica tus conocimientos y obtén el máximo puntaje. Vamos!")
+  print(YELLOW + f"Bienvenido {nombreParticipante}\nAplica tus conocimientos y obtén el máximo puntaje. ¡Vamos!")
 
 
 
 
 ##* Suete aleatoria en puntajes
-suerte = input("¿Te gustaría que la Suerte ingrese en este juego? (Si/No) ")
+time.sleep(3)
+suerte = input("\n¡Espera un momento! ¿Te gustaría que la Suerte ingrese en esta trivia? (Si/No) ")
 suerte = suerte.lower()
 
 if suerte == "si":
-  print("¡La Suerte está dentro!, esperemos que obtengas el mayor puntaje en este intento")
+  print("La suerte se está preparando, espere...")
+  time.sleep(3)
+  print("\n¡La Suerte está dentro!, esperemos que obtengas el mayor puntaje en este intento...")
   puntajeCorrecto = random.randint (11, 100)
-  print(f"La Suerte dictaminó que en este intento, por respuesta correcta tendás +{puntajeCorrecto} puntos")
+  print(f"Además, la Suerte dictaminó que en este intento, por respuesta correcta tendrás +{puntajeCorrecto} puntos. Empecemos a jugar...")
+
 elif suerte =="no":
   print(f"La Suerte no está invitada en este intento. Tu puntaje por respuesta correcta será +{puntajeCorrecto}. Empecemos a jugar...")
+time.sleep(2)
+
+
+
+print()
+##* Carga inicial de 5 segundos
+for numero in range(5, 0, -1):
+  print(numero)
+  time.sleep(1)
 
 
 
 
 ##* Puntaje inicial
-print(f"Tu puntaje inicial es: {puntajeIntento}")
+print(f"\nTu puntaje inicial es: {puntajeIntento}")
+time.sleep(2)
 
 
+
+##* Preguntas
 preguntas(pregunta_p1, alternativas_p1, opcionCorrecta_p1)
 puntajeIntento = puntajeIntento + puntajeCorrecto
-print(f"Tu puntaje actual es: {puntajeIntento}")
+print(f"\nTu puntaje actual es: {puntajeIntento}")
 
 
-
+time.sleep(2)
 preguntas(pregunta_p2, alternativas_p2, opcionCorrecta_p2)
 puntajeIntento = puntajeIntento + puntajeCorrecto
-print(f"Tu puntaje actual es: {puntajeIntento}")
+print(f"\nTu puntaje actual es: {puntajeIntento}")
 
 
 
+time.sleep(2)
 preguntas(pregunta_p3, alternativas_p3, opcionCorrecta_p3)
 puntajeIntento = puntajeIntento + puntajeCorrecto
-print(f"Tu puntaje actual es: {puntajeIntento}")
+print(f"\nTu puntaje actual es: {puntajeIntento}")
 
 
 
+time.sleep(2)
 preguntas(pregunta_p4, alternativas_p4, opcionCorrecta_p4)
 puntajeIntento = puntajeIntento + puntajeCorrecto
-print(f"Tu puntaje actual es: {puntajeIntento}")
+print(f"\nTu puntaje actual es: {puntajeIntento}")
 
 
 
+time.sleep(2)
 preguntas(pregunta_p5, alternativas_p5, opcionCorrecta_p5)
 puntajeIntento = puntajeIntento + puntajeCorrecto
-print(f"Tu puntaje actual es: {puntajeIntento}")
+print(f"\nTu puntaje actual es: {puntajeIntento}")
 
 
 
+time.sleep(2)
 preguntas(pregunta_p6, alternativas_p6, opcionCorrecta_p6)
 puntajeIntento = puntajeIntento + puntajeCorrecto
-print(f"Tu puntaje Final es: {puntajeIntento}")
+
+
+
+time.sleep(2)
+##* Carga aleatoria final
+numeroAleatorio = random.randint(1, 5)
+for carga in range(numeroAleatorio, 0, -1):
+  print(carga)
+  time.sleep(1)
+
+
+print(f"\nFelicidades, terminaste la Trivia de Formula 1.\nTu puntaje Final es: {puntajeIntento}")
 
 
