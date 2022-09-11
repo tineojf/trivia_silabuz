@@ -109,6 +109,13 @@ def preguntas(param_pregunta, param_alternativas, param_opcionCorrecta):
       break
 
 
+
+
+
+
+
+
+
 ###todo Bienvenida de Trivia
 print(YELLOW + "Trivia de Fórmula 1" + NORMALIZE)
 
@@ -121,28 +128,45 @@ else:
   print(YELLOW + f"Bienvenido {nombreParticipante}\nAplica tus conocimientos y obtén el máximo puntaje. ¡Suerte!")
 
 
-#! Añadir puntaje inicial 
 
 
-###* Pregunta 1
-print(CYAN + pregunta_p1)
-for iteracion in alternativas_p1:
-    print(YELLOW + iteracion + NORMALIZE)
 
-##* Verificar letra dentro de alternativas
-while True:
-  variable = input("Introduca la opción correcta: ")
-  variable = variable.lower()
+##* Puntaje inicial
+print(f"Tu puntaje inicial es: {puntajeIntento}")
 
 
-  while variable not in listaOpciones:
-    variable = input("Introduzca una letra dentro de las opciones mostradas: ")
-    variable = variable.lower()
+preguntas(pregunta_p1, alternativas_p1, opcionCorrecta_p1)
+puntajeIntento = puntajeIntento + puntajeCorrecto
+print(f"Tu puntaje actual es: {puntajeIntento}")
 
-  if variable != opcionCorrecta_p1:
-    print("No es la respuesta correcta, inténtalo otra vez")
-  else:
-    print("Excelente, es la respuesta correcta")
-    break
+
+
+preguntas(pregunta_p2, alternativas_p2, opcionCorrecta_p2)
+puntajeIntento = puntajeIntento + puntajeCorrecto
+print(f"Tu puntaje actual es: {puntajeIntento}")
+
+
+
+preguntas(pregunta_p3, alternativas_p3, opcionCorrecta_p3)
+puntajeIntento = puntajeIntento + puntajeCorrecto
+print(f"Tu puntaje actual es: {puntajeIntento}")
+
+
+
+preguntas(pregunta_p4, alternativas_p4, opcionCorrecta_p4)
+puntajeIntento = puntajeIntento + puntajeCorrecto
+print(f"Tu puntaje actual es: {puntajeIntento}")
+
+
+
+preguntas(pregunta_p5, alternativas_p5, opcionCorrecta_p5)
+puntajeIntento = puntajeIntento + puntajeCorrecto
+print(f"Tu puntaje actual es: {puntajeIntento}")
+
+
+
+preguntas(pregunta_p6, alternativas_p6, opcionCorrecta_p6)
+puntajeIntento = puntajeIntento + puntajeCorrecto
+print(f"Tu puntaje Final es: {puntajeIntento}")
 
 
