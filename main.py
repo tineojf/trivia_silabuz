@@ -114,7 +114,7 @@ time.sleep(1)
 nombreParticipante = input(MAGENTA + "¿Cuál es tu nombre? " + NORMALIZE)
 if nombreParticipante == "Admin":
   print(MAGENTA + "Bienvenido usuario curioso, espero que éstas preguntas puedan ser de tu agrado" + NORMALIZE)
-  print("En agradecimiento, empiezas con un puntaje inicial de 50 puntos")
+  print("En agradecimiento, empiezas con un puntaje inicial de 100 puntos")
   puntajeIntento = 100
 else:
   print(YELLOW + f"Bienvenido {nombreParticipante}\nAplica tus conocimientos y obtén el máximo puntaje. ¡Vamos!")
