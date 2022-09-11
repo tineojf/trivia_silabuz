@@ -86,14 +86,51 @@ nombreParticipante = input(MAGENTA + "¿Cuál es tu nombre? " + NORMALIZE)
 print(YELLOW + f"Bienvenido {nombreParticipante}\nAplica tus conocimientos y obtén el máximo puntaje. ¡Suerte!")
 
 
+#! Añadir puntaje inicial 
 
 
+###* Pregunta 1
+print(CYAN + pregunta_p1)
+for iteracion in alternativas_p1:
+    print(YELLOW + iteracion + NORMALIZE)
+
+##* Verificar letra dentro de alternativas
+while True:
+  variable = input("Introduca la opción correcta: ")
+  variable = variable.lower()
 
 
+  while variable not in listaOpciones:
+    variable = input("Introduzca una letra dentro de las opciones mostradas: ")
+    variable = variable.lower()
+
+  if variable != opcionCorrecta_p1:
+    print("No es la respuesta correcta, inténtalo otra vez")
+  else:
+    print("Excelente, es la respuesta correcta")
+    break
 
 
+###* Pregunta 2
+print(CYAN + pregunta_p2)
+for iteracion in alternativas_p2:
+    print(YELLOW + iteracion + NORMALIZE)
+
+##* Verificar letra dentro de alternativas
+while True:
+  variable = input("Introduca la opción correcta: ")
+  variable = variable.lower()
 
 
+  while variable not in listaOpciones:
+    variable = input("Introduzca una letra dentro de las opciones mostradas: ")
+    variable = variable.lower()
+
+  if variable != opcionCorrecta_p2:
+    print("No es la respuesta correcta, inténtalo otra vez")
+  else:
+    print("Excelente, es la respuesta correcta")
+    break
 
 
 
