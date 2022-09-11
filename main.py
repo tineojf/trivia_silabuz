@@ -85,7 +85,7 @@ print(YELLOW + "Trivia de Fórmula 1" + NORMALIZE)
 
 nombreParticipante = input(MAGENTA + "¿Cuál es tu nombre? " + NORMALIZE)
 if nombreParticipante == "Admin":
-  print("Bienvenido usuario curioso, espero que éstas preguntas puedan ser de tu agrado")
+  print(MAGENTA + "Bienvenido usuario curioso, espero que éstas preguntas puedan ser de tu agrado" + NORMALIZE)
   # print("En agradecimiento, empiezas con un puntaje inicial de ### puntos")
   #! añadir puntaje extra
 else:
