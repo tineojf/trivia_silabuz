@@ -119,49 +119,55 @@ def preguntas(param_pregunta, param_alternativas, param_opcionTrue):
 ###todo Bienvenida de Trivia
 ###todo Bienvenida de Trivia
 ###todo Bienvenida de Trivia
-# print(YELLOW + "Trivia de Fórmula 1" + NORMALIZE)
+print(YELLOW + "Trivia de Fórmula 1" + NORMALIZE)
 
-# time.sleep(1)
-# nombreParticipante = input(MAGENTA + "¿Cuál es tu nombre? " + NORMALIZE)
-# if nombreParticipante == "Admin":
-#   print(MAGENTA + "Bienvenido usuario curioso, espero que éstas preguntas puedan ser de tu agrado" + NORMALIZE)
-#   print("En agradecimiento, te añadiremos 100 puntos extra en tu score")
-#   puntajeExtra = 100
-# else:
-#   print(YELLOW + f"Bienvenido {nombreParticipante}\nAplica tus conocimientos y obtén el máximo puntaje. ¡Vamos!")
+time.sleep(1)
+nombreParticipante = input(MAGENTA + "¿Cuál es tu nombre? " + NORMALIZE)
+if nombreParticipante == "Admin":
+  print(MAGENTA + "Bienvenido usuario curioso, espero que éstas preguntas puedan ser de tu agrado")
+  print("En agradecimiento, te añadiremos 300 puntos extra en tu score" + NORMALIZE)
+  puntajeExtra = 300
+else:
+  print(f"Bienvenido {nombreParticipante}\nAplica tus conocimientos y obtén el máximo puntaje. ¡Vamos!")
 
 
 
 ##* Suerte aleatoria en puntajes
-# time.sleep(3)
-# suerte = input("\n¡Espera un momento! ¿Te gustaría que la Suerte ingrese en esta trivia? (Si/No) ")
-# suerte = suerte.lower()
+time.sleep(3)
+suerte = input("\n¡Espera un momento! ¿Te gustaría que LA SUERTE determine cuánto será tu puntaje por respuesta correcta o incorrecta? (Si/No) ")
+suerte = suerte.strip()
+suerte = suerte.lower()
 
-# if suerte == "si":
-#   print("La suerte se está preparando, espere...")
-#   time.sleep(3)
-#   print("\n¡La Suerte está dentro!, esperemos que obtengas el mayor puntaje en este intento...")
-#   puntajeCorrecto = random.randint (11, 100)
-#   print(f"Además, la Suerte dictaminó que en este intento, por respuesta correcta tendrás +{puntajeCorrecto} puntos. Empecemos a jugar...")
+if suerte == "si":
+  print("¡Que LA SUERTE te acompañe!, Cargando...")
+  time.sleep(2)
 
-# else:
-#   print(f"La Suerte no está invitada en este intento. Tu puntaje por respuesta correcta será +{puntajeCorrecto}. Empecemos a jugar...")
-# time.sleep(2)
+  print("\n¡LA SUERTE está dentro!, esperemos que obtengas el mayor puntaje en este intento...")
+
+  puntajeCorrecto = random.randrange(150, 250, 50)
+  puntajeIncorrecto = random.randrange(50, 150, 50)
+
+  print(f"\nLA SUERTE dictaminó que en este intento, por respuesta correcta tendrás +{puntajeCorrecto} puntos.")
+  print(f"Y por respuesta incorrecta, restarás {puntajeIncorrecto} puntos. Ahora sí, empecemos a jugar...")
+
+else:
+  print(f"LA SUERTE no influirá en este intento. Tu puntaje por respuesta correcta será +{puntajeCorrecto}, y por respuesta incorrecta {puntajeIncorrecto}. Empecemos a jugar...")
+time.sleep(3)
 
 
 
-# print()
-# ##* Carga inicial de 5 segundos
-# for numero in range(5, 0, -1):
-#   print(numero)
-#   time.sleep(1)
+print()
+##* Carga inicial de 5 segundos
+for numero in range(5, 0, -1):
+  print(numero)
+  time.sleep(1)
 
 
 ##* Bucle intentos
 intento = 1
 repetir = True
 while repetir == True:
-  puntajeIntento = 0
+  puntajeIntento = 0 + puntajeExtra
 
   ##* Puntaje inicial
   print(YELLOW + f"\nTu puntaje inicial es: {puntajeIntento}" + NORMALIZE)
@@ -196,12 +202,20 @@ while repetir == True:
     time.sleep(1)
 
 
+  ##* Puntaje final
+  if puntajeIntento < 0:
+    print(YELLOW + "\nTerminaste la Trivia de Fórmula 1.")
+    print(MAGENTA + f"Tu puntaje Final es: {puntajeIntento + puntajeExtra}")
+    print("No obtuviste un buen puntaje.")
+  else:
+    print(YELLOW + "\nFelicidades, terminaste la Trivia de Fórmula 1.")
+    print(MAGENTA + f"Tu puntaje Final es: {puntajeIntento + puntajeExtra}")
 
-  print(YELLOW + "\nFelicidades, terminaste la Trivia de Fórmula 1.")
-  print(MAGENTA + f"Tu puntaje Final es: {puntajeIntento + puntajeExtra}")
 
+  ##* Pregunta nuevo intento
   preguntaNuevoIntento = input(MAGENTA +"¿Quieres intentarlo de nuevo? (Si/No) ")
-  suerte = suerte.lower()
+  preguntaNuevoIntento = preguntaNuevoIntento.strip()
+  preguntaNuevoIntento = preguntaNuevoIntento.lower()
   if preguntaNuevoIntento == "no":
     break
   else:
