@@ -87,21 +87,22 @@ def preguntas(param_pregunta, param_alternativas, param_opcionTrue):
   for iteracion in param_alternativas:
       print(iteracion)
 
-  ##* Verificar letra dentro de alternativas
+  #* Bucle de respuesta incorrecta
   while True:
     global puntajeIntento
     variable = input(CYAN + "Introduzca la opción correcta: ")
     variable = variable.strip()
     variable = variable.lower()
 
-
+    ##* Verificar letra dentro de alternativas
     while variable not in listaOpciones:
-      variable = input("Introduzca una letra dentro de las opciones mostradas: ")
+      variable = input(CYAN + "Introduzca una letra dentro de las opciones mostradas: ")
       variable = variable.strip()
       variable = variable.lower()
 
+    ##* Verificar respuesta correcta
     if variable != param_opcionTrue:
-      print(RED + "No es la respuesta correcta, inténtalo otra vez" + GREEN)
+      print(RED + "No es la respuesta correcta, inténtalo otra vez")
       puntajeIntento = puntajeIntento - puntajeIncorrecto
       print(YELLOW + f"\nTu puntaje actual es: {puntajeIntento}" + NORMALIZE)
 
@@ -112,8 +113,6 @@ def preguntas(param_pregunta, param_alternativas, param_opcionTrue):
       break
 
   return
-
-
 
 
 
