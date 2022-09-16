@@ -1,10 +1,9 @@
 
 ###todo Recursos
 
-#* Import
+##* Import
 import random
 import time
-#! Agregar
 
 ##* Colores
 BLACK = '\033[30m'
@@ -18,7 +17,7 @@ WHITE = '\033[37m'
 NORMALIZE = '\033[39m'
 
 ##* lista de opciones
-listaOpciones = ["a", "b", "c", "d", "e"]
+listaOpciones = ["a", "b", "c", "d"]
 
 ##* Preguntas
 pregunta_p1 = "\n¿Quién fue campeón de la Fórmula 1 2021?"
@@ -67,28 +66,31 @@ alternativas_p6 = [
 ]
 
 ##* Opciones True
-opcionCorrecta_p1 = "c"
-opcionCorrecta_p2 = "b"
-opcionCorrecta_p3 = "c"
-opcionCorrecta_p4 = "d"
-opcionCorrecta_p5 = "a"
-opcionCorrecta_p6 = "b"
+opcionTrue_p1 = "c"
+opcionTrue_p2 = "b"
+opcionTrue_p3 = "c"
+opcionTrue_p4 = "d"
+opcionTrue_p5 = "a"
+opcionTrue_p6 = "b"
 
 ##* Puntaje
 puntajeIntento = 0
-puntajeCorrecto = 10
+puntajeCorrecto = 100
 puntajeExtra = 0
+puntajeIncorrecto = 50
 
 ##* Funcion para cada pregunta
-def preguntas(param_pregunta, param_alternativas, param_opcionCorrecta):
+def preguntas(param_pregunta, param_alternativas, param_opcionTrue):
 
+  #* Imprime las preguntas y alternativas
   print(param_pregunta)
   for iteracion in param_alternativas:
       print(iteracion)
 
   ##* Verificar letra dentro de alternativas
   while True:
-    variable = input("Introduzca la opción correcta: ")
+    global puntajeIntento
+    variable = input(CYAN + "Introduzca la opción correcta: ")
     variable = variable.strip()
     variable = variable.lower()
 
@@ -98,54 +100,62 @@ def preguntas(param_pregunta, param_alternativas, param_opcionCorrecta):
       variable = variable.strip()
       variable = variable.lower()
 
-    if variable != param_opcionCorrecta:
-      print("No es la respuesta correcta, inténtalo otra vez")
+    if variable != param_opcionTrue:
+      print(RED + "No es la respuesta correcta, inténtalo otra vez" + GREEN)
+      puntajeIntento = puntajeIntento - puntajeIncorrecto
+      print(YELLOW + f"\nTu puntaje actual es: {puntajeIntento}" + NORMALIZE)
+
     else:
-      print("Excelente, es la respuesta correcta")
+      print(GREEN + "Excelente, es la respuesta correcta")
+      puntajeIntento = puntajeIntento + puntajeCorrecto
+      print(YELLOW + f"\nTu puntaje actual es: {puntajeIntento}" + NORMALIZE)
       break
 
+  return
+
+
+
 
 
 ###todo Bienvenida de Trivia
 ###todo Bienvenida de Trivia
 ###todo Bienvenida de Trivia
-print(YELLOW + "Trivia de Fórmula 1" + NORMALIZE)
+# print(YELLOW + "Trivia de Fórmula 1" + NORMALIZE)
 
-time.sleep(1)
-nombreParticipante = input(MAGENTA + "¿Cuál es tu nombre? " + NORMALIZE)
-if nombreParticipante == "Admin":
-  print(MAGENTA + "Bienvenido usuario curioso, espero que éstas preguntas puedan ser de tu agrado" + NORMALIZE)
-  print("En agradecimiento, te añadiremos 100 puntos extra en tu score")
-  puntajeExtra = 100
-else:
-  print(YELLOW + f"Bienvenido {nombreParticipante}\nAplica tus conocimientos y obtén el máximo puntaje. ¡Vamos!")
+# time.sleep(1)
+# nombreParticipante = input(MAGENTA + "¿Cuál es tu nombre? " + NORMALIZE)
+# if nombreParticipante == "Admin":
+#   print(MAGENTA + "Bienvenido usuario curioso, espero que éstas preguntas puedan ser de tu agrado" + NORMALIZE)
+#   print("En agradecimiento, te añadiremos 100 puntos extra en tu score")
+#   puntajeExtra = 100
+# else:
+#   print(YELLOW + f"Bienvenido {nombreParticipante}\nAplica tus conocimientos y obtén el máximo puntaje. ¡Vamos!")
 
 
 
 ##* Suerte aleatoria en puntajes
-time.sleep(3)
-suerte = input("\n¡Espera un momento! ¿Te gustaría que la Suerte ingrese en esta trivia? (Si/No) ")
-suerte = suerte.lower()
+# time.sleep(3)
+# suerte = input("\n¡Espera un momento! ¿Te gustaría que la Suerte ingrese en esta trivia? (Si/No) ")
+# suerte = suerte.lower()
 
-if suerte == "si":
-  print("La suerte se está preparando, espere...")
-  time.sleep(3)
-  print("\n¡La Suerte está dentro!, esperemos que obtengas el mayor puntaje en este intento...")
-  puntajeCorrecto = random.randint (11, 100)
-  print(f"Además, la Suerte dictaminó que en este intento, por respuesta correcta tendrás +{puntajeCorrecto} puntos. Empecemos a jugar...")
+# if suerte == "si":
+#   print("La suerte se está preparando, espere...")
+#   time.sleep(3)
+#   print("\n¡La Suerte está dentro!, esperemos que obtengas el mayor puntaje en este intento...")
+#   puntajeCorrecto = random.randint (11, 100)
+#   print(f"Además, la Suerte dictaminó que en este intento, por respuesta correcta tendrás +{puntajeCorrecto} puntos. Empecemos a jugar...")
 
-else:
-  print(f"La Suerte no está invitada en este intento. Tu puntaje por respuesta correcta será +{puntajeCorrecto}. Empecemos a jugar...")
-time.sleep(2)
+# else:
+#   print(f"La Suerte no está invitada en este intento. Tu puntaje por respuesta correcta será +{puntajeCorrecto}. Empecemos a jugar...")
+# time.sleep(2)
 
 
 
-print()
-##* Carga inicial de 5 segundos
-for numero in range(5, 0, -1):
-  print(numero)
-  time.sleep(1)
-
+# print()
+# ##* Carga inicial de 5 segundos
+# for numero in range(5, 0, -1):
+#   print(numero)
+#   time.sleep(1)
 
 
 ##* Bucle intentos
@@ -155,50 +165,33 @@ while repetir == True:
   puntajeIntento = 0
 
   ##* Puntaje inicial
-  print(GREEN + f"\nTu puntaje inicial es: {puntajeIntento}")
+  print(YELLOW + f"\nTu puntaje inicial es: {puntajeIntento}" + NORMALIZE)
   time.sleep(2)
-
 
 
   ##* Preguntas
-  preguntas(pregunta_p1, alternativas_p1, opcionCorrecta_p1)
-  puntajeIntento = puntajeIntento + puntajeCorrecto
-  print(YELLOW + f"\nTu puntaje actual es: {puntajeIntento}" + GREEN)
 
-
+  preguntas(pregunta_p1, alternativas_p1, opcionTrue_p1)
   time.sleep(2)
-  preguntas(pregunta_p2, alternativas_p2, opcionCorrecta_p2)
-  puntajeIntento = puntajeIntento + puntajeCorrecto
-  print(YELLOW + f"\nTu puntaje actual es: {puntajeIntento}" + GREEN)
 
-
+  preguntas(pregunta_p2, alternativas_p2, opcionTrue_p2)
   time.sleep(2)
-  preguntas(pregunta_p3, alternativas_p3, opcionCorrecta_p3)
-  puntajeIntento = puntajeIntento + puntajeCorrecto
-  print(YELLOW + f"\nTu puntaje actual es: {puntajeIntento}" + GREEN)
 
-
+  preguntas(pregunta_p3, alternativas_p3, opcionTrue_p3)
   time.sleep(2)
-  preguntas(pregunta_p4, alternativas_p4, opcionCorrecta_p4)
-  puntajeIntento = puntajeIntento + puntajeCorrecto
-  print(YELLOW + f"\nTu puntaje actual es: {puntajeIntento}" + GREEN)
 
-
+  preguntas(pregunta_p4, alternativas_p4, opcionTrue_p4)
   time.sleep(2)
-  preguntas(pregunta_p5, alternativas_p5, opcionCorrecta_p5)
-  puntajeIntento = puntajeIntento + puntajeCorrecto
-  print(YELLOW + f"\nTu puntaje actual es: {puntajeIntento}" + GREEN)
 
-
+  preguntas(pregunta_p5, alternativas_p5, opcionTrue_p5)
   time.sleep(2)
-  preguntas(pregunta_p6, alternativas_p6, opcionCorrecta_p6)
-  puntajeIntento = puntajeIntento + puntajeCorrecto
 
-
-
+  preguntas(pregunta_p6, alternativas_p6, opcionTrue_p6)
   time.sleep(2)
+
+
   ##* Carga aleatoria final
-  numeroAleatorio = random.randint(1, 5)
+  numeroAleatorio = random.randint(3, 5)
   for carga in range(numeroAleatorio, 0, -1):
     print(carga)
     time.sleep(1)
